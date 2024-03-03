@@ -37,18 +37,18 @@ G4VPhysicalVolume *DetectorConstruction::Construct()
     auto Polyethylene1Xlength = 100. * cm;
     auto Polyethylene1Ylength = 200. * cm;
     auto Polyethylene1Zlength =  60. * cm;
-    auto Polyethylene1Sol = new G4Box("Polyethylene1", .5 * Polyethylene1Xlength, .5 * Polyethylene1Ylength, .5 * Polyethylene1Zlength);
 
-    auto Polyethylene1Log = new G4LogicalVolume(Polyethylene1Sol, matPolyethylene, "Polyethylene1");
-    new G4PVPlacement(nullptr, Polyethylene1Pos, Polyethylene1Log, "Polyethylene1", worldLog, false, 0);
+    auto Polyethylene1Sol = new G4Box("Polyethylene1", .5 * Polyethylene1Xlength, .5 * Polyethylene1Ylength, .5 * Polyethylene1Zlength); // Solid : 지오메트리 모양, 크기
+    auto Polyethylene1Log = new G4LogicalVolume(Polyethylene1Sol, matPolyethylene, "Polyethylene1"); // Logical : 지오메트리의 매질 등 질적인 특성에 대한 정보
+    new G4PVPlacement(nullptr, Polyethylene1Pos, Polyethylene1Log, "Polyethylene1", worldLog, false, 0); // Physical : 지오메트리의 위치, 회전, 소속 등 배치에 대한 정보 담당
 
     // Polyethylene2
     auto Polyethylene2Pos = G4ThreeVector(212.54 *cm, 0.*cm, 0.*cm);
     auto Polyethylene2Xlength = 5.08 * cm;
     auto Polyethylene2Ylength = 15.24 * cm;
     auto Polyethylene2Zlength = 0.5 * cm;
+    
     auto Polyethylene2Sol = new G4Box("Polyethylene2", .5 * Polyethylene2Xlength, .5 * Polyethylene2Ylength, .5 * Polyethylene2Zlength);
-
     auto Polyethylene2Log = new G4LogicalVolume(Polyethylene2Sol, matPolyethylene, "Polyethylene2");
     new G4PVPlacement(nullptr, Polyethylene2Pos, Polyethylene2Log, "Polyethylene2", worldLog, false, 0);
     
